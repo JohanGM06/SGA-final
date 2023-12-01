@@ -43,15 +43,16 @@ observaciones_entrada text null
 
 	CREATE TABLE usuario (
 ID int(20) not null primary key,
-tipo_ID enum('CC') not null,
+tipo_ID enum('CC') null,
 nombre VARCHAR(50) not null,
 nombre2 VARCHAR(50) not null,
 apellidos VARCHAR(50) not null,
 fecha_nacimiento date not null,
 correo VARCHAR(50) not null,
 usuario VARCHAR(50) not null,
-contraseña VARCHAR(50) not null not null
+contraseña VARCHAR(50) not null
 );
+
 
 Alter table producto add A BIGINT null;
 alter table producto add B BIGINT null;
@@ -62,3 +63,4 @@ alter table producto add constraint fk_producto_entrada foreign key (A) referenc
 alter table producto add constraint fk_producto_salida foreign key (B) references salida(codigo_salida);
 alter table producto add constraint fk_producto_usuario foreign key (C) references usuario(ID);
 	
+
