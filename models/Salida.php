@@ -76,7 +76,14 @@ class Salida{
     }
     public function getcantidadS(){
         return $this->cantidadS;
-    }    
+    }   
+    public function setobservacionesS($observacionesS){
+        $this->observacionesS = $observacionesS;
+
+    }
+    public function getobservacionesS(){
+        return $this->observacionesS;
+    } 
     public function settipoidS($tipoidS){
         $this->tipoidS = $tipoidS;
 
@@ -119,16 +126,12 @@ class Salida{
     public function getcoreoS(){
         return $this->coreoS;
     }    
-    public function setobservacionesS($observacionesS){
-        $this->observacionesS = $observacionesS;
-
-    }
-    public function getobservacionesS(){
-        return $this->observacionesS;
-    }
     public function salidaCreate(){
         try{
-        $sql = 'INSERT INTO salida values (
+        $sql = 'INSERT INTO 
+        salida
+        values 
+        (
             ?,
             ?,
             ?,
@@ -141,7 +144,7 @@ class Salida{
             ?,
             ?,
             ?
-            )';
+        )';
             $stmt =$this->dbh->prepare($sql);
             $stmt->bindValue(1,$this->getcodigoS());
             $stmt->bindValue(2,$this->getproductoS());
@@ -159,20 +162,20 @@ class Salida{
         }catch(Exception $e){
             die($e->getMessage());
         }
-        // try{
-        //     $sql2 = 'UPDATE producto SET 
-        //     cantidad = (cantidad-(?)) 
-        //     WHERE 
-        //     nombre_producto = ? and
-        //     medida_producto = ?';
-        //     $stmt2= $this->dbh->prepare($sql2);
-        //     $stmt2->bindValue(1,$this->getcantidadS());
-        //     $stmt2->bindValue(2,$this->getproductoS());
-        //     $stmt2->bindValue(3,$this->getmedidaS());
-        //     $stmt2->execute();
-        // }catch (Exception $e){
-        // die($e->getMessage());
-        // }
+        try{
+            $sql2 = 'UPDATE producto SET 
+            cantidad = (cantidad-(?)) 
+            WHERE 
+            nombre_producto = ? and
+            medida_producto = ?';
+            $stmt2= $this->dbh->prepare($sql2);
+            $stmt2->bindValue(1,$this->getcantidadS());
+            $stmt2->bindValue(2,$this->getproductoS());
+            $stmt2->bindValue(3,$this->getmedidaS());
+            $stmt2->execute();
+        }catch (Exception $e){
+        die($e->getMessage());
+        }
         } 
      public function salidaRead(){
         try{
@@ -230,33 +233,32 @@ class Salida{
     }     
     public function salidaUpdate(){
         try {                
-            $sql = 'UPDATE entrada SET
+            $sql = 'UPDATE salida SET
                         nombre_producto = ?,
                         medida_producto = ?,
-                        fecha_compra = ?,
+                        fecha = ?,
                         cantidad = ?,
-                        precio = ?,
-                        nombre_proveedor = ?,
-                        nit = ?,
-                        telefono_proveedor = ?,
-                        direccion_proveedor = ?,                      
-                        correo_proveedor = ?,
-                        observaciones_entrada = ?
-                    WHERE codigo_entrada = ?';
+                        observaciones_salida = ?,
+                        tipo_id = ?,
+                        num_id = ?,
+                        nombre_cliente = ?,                      
+                        telefono_cliente = ?,
+                        observaciones_salida = ?,
+                        correo_cliente = ?
+                    WHERE codigo_salida = ?';
             $stmt = $this->dbh->prepare($sql);
-            $stmt =$this->dbh->prepare($sql);
-            $stmt->bindValue(1,$this->getcodigoS());
-            $stmt->bindValue(2,$this->getproductoS());
-            $stmt->bindValue(3,$this->getmedidaS());
-            $stmt->bindValue(4,$this->getfechaS());
-            $stmt->bindValue(5,$this->getcantidadS());
+            $stmt->bindValue(1,$this->getproductoS());
+            $stmt->bindValue(2,$this->getmedidaS());
+            $stmt->bindValue(3,$this->getfechaS());
+            $stmt->bindValue(4,$this->getcantidadS());
+            $stmt->bindValue(5,$this->getobservacionesS());
             $stmt->bindValue(6,$this->gettipoidS());
             $stmt->bindValue(7,$this->getnumidS());
             $stmt->bindValue(8,$this->getnombresS());
             $stmt->bindValue(9,$this->getcelS());
             $stmt->bindValue(10,$this->getdireccionS());
             $stmt->bindValue(11,$this->getcoreoS());
-            $stmt->bindValue(12,$this->getobservacionesS());
+            $stmt->bindValue(12,$this->getcodigoS());
             $stmt->execute();
 
         } catch (Exception $e) {

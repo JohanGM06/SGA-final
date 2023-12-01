@@ -19,7 +19,7 @@ fecha DATE not null,
 cantidad BIGINT not null,
 observaciones_salida TEXT null,
 tipo_id enum('CC','CE','PASAPORTE','NIT','DE')null,
-num_id int(20) null,    
+num_id int(50) null,    
 nombre_cliente VARCHAR(50)null,
 telefono_cliente VARCHAR(30) null,
 direccion_cliente VARCHAR(30) null,
@@ -63,4 +63,3 @@ alter table producto add constraint fk_producto_entrada foreign key (A) referenc
 alter table producto add constraint fk_producto_salida foreign key (B) references salida(codigo_salida);
 alter table producto add constraint fk_producto_usuario foreign key (C) references usuario(ID);
 	
-

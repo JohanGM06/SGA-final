@@ -9,21 +9,23 @@
                 require_once "views/Salida/Salida_create.view.php";
         }
         if ($_SERVER['REQUEST_METHOD'] == 'POST') {
-            $salida = new Salida(
+            $salidas = new Salida(
                 null,
                 $_POST['productoS'],
                 $_POST['medidaS'],
                 $_POST['fechaS'],
                 $_POST['cantidadS'],
-                $_POST['observacionesS'],
                 $_POST['tipoidS'],
                 $_POST['numidS'],
                 $_POST['nombresS'],
                 $_POST['celS'],
                 $_POST['direccionS'],
-                $_POST['coreoS']
+                $_POST['coreoS'],
+                $_POST['observacionesS']
+
             );
-            $salida->salidaCreate();
+            // print_r($salida);
+            $salidas->salidaCreate();
             header("Location:?c=Salidas&a=readSalida");
         }
     }
