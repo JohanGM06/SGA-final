@@ -5,7 +5,7 @@ class DataBase
     public static function connection(){            
         $hostname = "sgaproyecto2023.mysql.database.azure.com";
         $port = "3306";
-        $database = "sgaproyecto2023";
+        $database = "sga2";
         $username = "zac";
         $password = "Qwertyuiop123456.";
         $options = array(
