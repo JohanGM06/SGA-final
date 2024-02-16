@@ -1,0 +1,3 @@
+Aquí va el workbench de la base de datos, pero más que nada creación.
+Hay dos archivos tipo SQL (.sql) y uno lo genera automáticamente workbench y el otro se hace manual. 
+Y un png o un PDF, del mer de la BDD

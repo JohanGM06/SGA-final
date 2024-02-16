@@ -1,0 +1,1 @@
+El ddl son las sentencias para:  agregar campos, eliminar campos, organizar los campos, etc.
