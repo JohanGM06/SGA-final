@@ -1,0 +1,3 @@
+En esta carpeta va la carpeta que tiene que contener algunas consultas ya preparadas para hacer pruebas.
+Hay dos, consultas a una tabla y consultas a varias tablas. 
+
