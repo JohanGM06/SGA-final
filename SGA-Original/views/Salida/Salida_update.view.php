@@ -21,18 +21,19 @@
     </header>
     <div class="container-fluid">
         <form action="" method="post" class="form-neon" autocomplete="off">
+        <?php foreach ($this->model->Obtener() as $s): ?>
 
             <h1>SALIDA</h1>
-            <input type="hidden" name="codigoS" value="<?php echo $salida->getcodigoS(); ?>">
-            <select name="productoS" required value="">
-                <option disabled selected value="">Selecciona un Producto</option>
+            <input type="hidden" name="codigoS" value="<?php echo $s->codigo_salida; ?>">
+            <select name="productoS" required>
+                <option disabled selected><?php echo $s->nombre_producto; ?></option>
                 <option value="botas negras">Botas negras</option>
                 <option value="botas azules">Botas azules</option>
                 <option value="botas marrones">Botas marrones</option>
             </select>
 
-            <select name="medidaS" required value="">
-                <option disabled selected value="">Selecciona una medida</option>
+            <select name="medidaS" required>
+                <option disabled selected><?php echo $s->medida_producto; ?></option>
                 <option value="30">30</option>
                 <option value="32">32</option>
                 <option value="34">34</option>
@@ -42,12 +43,12 @@
                 <option value="42">42</option>
             </select>
 
-            <input type="date" require name="fechaS" value="">
+            <input type="date" require name="fechaS" value="<?php echo $s->fecha; ?>">
 
-            <input type="number" placeholder="cantidad" require name="cantidadS" value=""></imput>
+            <input type="number" placeholder="cantidad" require name="cantidadS" value="<?php echo $s->cantidad; ?>"></imput>
 
             <select name="tipoidS">
-                <option disabled selected value="">Tipo De Documento</option>
+                <option disabled selected><?php echo $s->tipo_id; ?></option>
                 <option value="CC">CC</option>
                 <option value="CE">CE</option>
                 <option value="PASAPORTE">PASAPORTE</option>
@@ -55,20 +56,21 @@
                 <option value="NIT">NIT</option>
             </select>
 
-            <input type="number" placeholder="Numero de id" name="numidS" value=""></imput>
+            <input type="number" placeholder="Numero de id" name="numidS" value="<?php echo $s->num_id; ?>"></imput>
 
-            <input type="text" placeholder="Nombre" name="nombresS" value=""></imput>
+            <input type="text" placeholder="Nombre" name="nombresS" value="<?php echo $s->nombre_cliente; ?>"></imput>
 
-            <input type="tel" placeholder="Telefono" name="celS" required class="form-input" value=""></imput>
+            <input type="tel" placeholder="Telefono" name="celS" required class="form-input" value="<?php echo $s->telefono_cliente; ?>"></imput>
 
-            <input type="text" placeholder="Direccion" name="direccionS" value=""></imput>
+            <input type="text" placeholder="Direccion" name="direccionS" value="<?php echo $s->direccion_cliente; ?>"></imput>
 
-            <input type="text" placeholder="Correo" name="coreoS" required class="form-input" value=""></imput>
+            <input type="text" placeholder="Correo" name="coreoS" required class="form-input" value="<?php echo $s->correo_cliente; ?>"></imput>
 
-            <input type="text" placeholder="Observaciones" name="observacionesS" value=""></imput>
+            <input type="text" placeholder="Observaciones" name="observacionesS" value="<?php echo $s->observaciones_salida; ?>"></imput>
 
             <button type="submit" class="btn btn-raised btn-info btn-sm"><i class="far fa-save"></i> &nbsp;
                 ENVIAR</button>
+                <?php endforeach; ?>
 
         </form>
     </div>

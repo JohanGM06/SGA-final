@@ -1,15 +1,14 @@
 <?php
     require_once "models/Producto.php";
     class Productos{
+        private $model;
+        public function __CONSTRUCT()
+        {
+            $this->model = new Producto();
+        }
         public function main(){
-            echo "hola";
+            require_once "views/Producto/Producto_read.view.php";        
         }
-        public function readProducto(){
-            $productos = new Producto;
-            $productos = $productos->productoRead();
-            // var_dump($productos);
 
-            require_once "views/Producto/Producto_read.view.php";
-        }
     }
 ?>

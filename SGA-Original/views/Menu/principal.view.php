@@ -32,7 +32,7 @@
 						<p class="text">Entrada De Producto</p>
 					</div>
 				</a>
-				<a href="?c=Entradas&a=readEntrada" class="boton">
+				<a href="?c=Entradas&a=main" class="boton">
 					<div>
 						<p class="text">Lista De Productos</p>
 					</div>
@@ -46,12 +46,12 @@
 					</div>
 				</a>
 
-				<a href="?c=Salidas&a=readSalida" class="boton">
+				<a href="?c=Salidas&a=main" class="boton">
 					<div>
 						<p class="text">Lista De salidas</p>
 					</div>
 				</a>
-				<a href="?c=Productos&a=readProducto" class="boton">
+				<a href="?c=Productos&a=main" class="boton">
 					<div>
 						<p class="text">Inventario</p>
 					</div>

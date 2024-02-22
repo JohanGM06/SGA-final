@@ -41,28 +41,28 @@
 								</tr>
 							</thead>
 							<tbody>
-								<?php foreach ($productos as $producto): ?>
+								<?php foreach ($this->model->productoRead() as $p): ?>
 									<tr class="text-center">
 										<td>
-											<?php echo $producto->getcodigoP(); ?>
+											<?php echo $p->codigo_producto; ?>
 										</td>
 										<th>
-											<?php echo $producto->getproductoP(); ?>
+											<?php echo $p->nombre_producto; ?>
 										</th>
 										<th>
-											<?php echo $producto->getmedidaP(); ?>
+											<?php echo $p->medida_producto; ?>
 										</th>
 										<th>
-											<?php echo $producto->getnombreproveedorP(); ?>
+											<?php echo $p->nombre_proveedor; ?>
 										</th>
 										<th>
-											<?php echo $producto->getprecioP(); ?>
+											<?php echo $p->precio; ?>
 										</th>
 										<th>
-											<?php echo $producto->getcantidadP(); ?>
+											<?php echo $p->cantidad; ?>
 										</th>
 										<th>
-											<?php echo $producto->getobservacionesP(); ?>
+											<?php echo $p->observaciones_producto; ?>
 										</th>
 
 

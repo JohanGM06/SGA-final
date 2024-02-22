@@ -47,48 +47,48 @@
 								</tr>
 							</thead>
 							<tbody>
-								<?php foreach ($salidas as $salida): ?>
+							<?php foreach ($this->model->Obtener() as $s): ?>
 									<tr class="text-center">
 										<td>
-											<?php echo $salida->getcodigoS(); ?>
+											<?php echo $s->codigo_salida; ?>
 										</td>
 										<th>
-											<?php echo $salida->getproductoS(); ?>
+											<?php echo $s->nombre_producto; ?>
 										</th>
 										<th>
-											<?php echo $salida->getmedidaS(); ?>
+											<?php echo $s->medida_producto; ?>
 										</th>
 										<th>
-											<?php echo $salida->getfechaS(); ?>
+											<?php echo $s->fecha; ?>
 										</th>
 										<th>
-											<?php echo $salida->getcantidadS(); ?>
+											<?php echo $s->cantidad; ?>
 										</th>
 										<th>
-											<?php echo $salida->gettipoidS(); ?>
+											<?php echo $s->tipo_id; ?>
 										</th>
 										<th>
-											<?php echo $salida->getnumidS(); ?>
+											<?php echo $s->num_id; ?>
 										</th>
 										<th>
-											<?php echo $salida->getnombresS(); ?>
+											<?php echo $s->nombre_cliente; ?>
 										</th>
 										<th>
-											<?php echo $salida->getcelS(); ?>
+											<?php echo $s->telefono_cliente; ?>
 										</th>
 										<th>
-											<?php echo $salida->getdireccionS(); ?>
+											<?php echo $s->direccion_cliente; ?>
 										</th>
 										<th>
-											<?php echo $salida->getcoreoS(); ?>
+											<?php echo $s->correo_cliente; ?>
 										</th>
 										<th>
-											<?php echo $salida->getobservacionesS(); ?>
+											<?php echo $s->observaciones_salida; ?>
 										</th>
 										<td>
 
 
-											<a href="?c=Salidas&a=updateSalida&idSalida=<?php echo $salida->getcodigoS(); ?>"
+											<a href="?c=Salidas&a=updateSalida&idSalida=<?php echo $s->codigo_salida; ?>"
 												class="btn-update btn-link">
 												<i class="fas fa-plus fa-fw"></i> &nbsp;ACTUALIZAR
 
@@ -97,7 +97,7 @@
 										<td>
 
 
-											<a href="?c=Salidas&a=deleteSalida&idSalida=<?php echo $salida->getcodigoS(); ?>"
+											<a href="?c=Salidas&a=deleteSalida&idSalida=<?php echo $s->codigo_salida; ?>"
 												class="btn-update btn-link">
 												<i class="fas fa-plus fa-fw"></i> &nbsp;ELIMINAR
 

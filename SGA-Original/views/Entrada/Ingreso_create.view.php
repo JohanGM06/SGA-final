@@ -22,7 +22,7 @@
         <div class="container-fluid">
 
 
-            <form action="" method="post" class="form-neon" autocomplete="off">
+            <form action="?c=Entradas&a=createEntrada" method="post" class="form-neon" autocomplete="off">
                 <h1>ENTRADA DE PRODUCTO</h1>
 
                 <select name="productoEP" required>
