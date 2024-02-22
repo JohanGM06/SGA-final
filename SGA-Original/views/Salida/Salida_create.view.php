@@ -19,18 +19,18 @@
     <main>
         <div class="container-fluid">
 
-            <form action="" method="post" class="form-neon" autocomplete="off">
+            <form action="?c=Salidas&a=createSalida" method="post" class="form-neon" autocomplete="off">
                 <h1>SALIDA</h1>
 
-                <select name="productoS" required value="">
-                    <option disabled selected value="">Selecciona un Producto</option>
+                <select name="productoS" required>
+                    <option disabled selected >Selecciona un Producto</option>
                     <option value="botas negras">Botas Negras</option>
                     <option value="botas azules">Botas Azules</option>
                     <option value="botas marrones">Botas Marrones</option>
                 </select>
 
-                <select name="medidaS" required value="">
-                    <option disabled selected value="">Selecciona una medida</option>
+                <select name="medidaS" required>
+                    <option disabled selected>Selecciona una medida</option>
                     <option value="30">30</option>
                     <option value="32">32</option>
                     <option value="34">34</option>
@@ -40,12 +40,12 @@
                     <option value="42">42</option>
                 </select>
 
-                <input type="date" require name="fechaS" value="">
+                <input type="date" require name="fechaS">
 
-                <input type="number" placeholder="cantidad" require name="cantidadS" value=""></imput>
+                <input type="number" placeholder="cantidad" require name="cantidadS"></imput>
 
                 <select name="tipoidS">
-                    <option disabled selected value="">Documento</option>
+                    <option disabled selected>Documento</option>
                     <option value="CC">CC</option>
                     <option value="CE">CE</option>
                     <option value="PASAPORTE">PASAPORTE</option>
@@ -53,19 +53,19 @@
                     <option value="NIT">NIT</option>
                 </select>
 
-                <input type="number" placeholder="numero de id" name="numidS" value=""></imput>
+                <input type="number" placeholder="numero de id" name="numidS"></imput>
 
-                <input type="text" placeholder="Nombre" name="nombresS" value=""></imput>
+                <input type="text" placeholder="Nombre" name="nombresS"></imput>
 
                 <input type="tel" placeholder="Teléfono" name="celS" class="form-input">
 
 
-                <input type="text" placeholder="Direccion" name="direccionS" value=""></imput>
+                <input type="text" placeholder="Direccion" name="direccionS"></imput>
 
                 <input type="email" placeholder="Correo" name="coreoS" class="form-input">
 
 
-                <input type="text" placeholder="observaciones" name="observacionesS" value=""></imput>
+                <input type="text" placeholder="observaciones" name="observacionesS"></imput>
 
                 <button type="submit" class="btn btn-raised btn-info btn-sm"><i class="far fa-save"></i> &nbsp;
                     ENVIAR</button>

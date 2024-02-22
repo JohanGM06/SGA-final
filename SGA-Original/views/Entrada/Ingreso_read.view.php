@@ -30,7 +30,6 @@
 						<table>
 							<thead>
 								<tr class="text-center roboto-medium">
-									<td>CODIGO DE ENTRADA</td>
 									<th>NOMBRE</th>
 									<th>MEDIDA</th>
 									<th>FECHA DE INGRESO</th>
@@ -48,50 +47,47 @@
 								</tr>
 							</thead>
 							<tbody>
-								<?php foreach ($entradas as $entrada): ?>
+								<?php foreach ($this->model->obtener() as $e): ?>
 									<tr class="text-center">
-										<td>
-											<?php echo $entrada->getcodigoEP(); ?>
-										</td>
 										<th>
-											<?php echo $entrada->getproductoEP(); ?>
+											<?php echo $e->nombre_producto; ?>
 										</th>
 										<th>
-											<?php echo $entrada->getmedidaEP(); ?>
+											<?php echo $e->medida_producto; ?>
 										</th>
 										<th>
-											<?php echo $entrada->getfechaEP(); ?>
+											<?php echo $e->fecha_compra; ?>
 										</th>
 										<th>
-											<?php echo $entrada->getcantidadEP(); ?>
+											<?php echo $e->cantidad; ?>
 										</th>
 
 										<th>
-											<?php echo $entrada->getprecioEP(); ?>
+											<?php echo $e->precio; ?>
 										</th>
 										<th>
-											<?php echo $entrada->getnombreproveedorEP(); ?>
+											<?php echo $e->nombre_proveedor; ?>
 										</th>
 										<th>
-											<?php echo $entrada->getnitEP(); ?>
+											<?php echo $e->nit; ?>
 										</th>
 										<th>
-											<?php echo $entrada->getcelEP(); ?>
+											<?php echo $e->telefono_proveedor; ?>
 										</th>
 										<th>
-											<?php echo $entrada->getdireccionproveedorEP(); ?>
+											<?php echo $e->direccion_proveedor; ?>
 										</th>
 										<th>
-											<?php echo $entrada->getcorreoproveedorEP(); ?>
+											<?php echo $e->correo_proveedor; ?>
 										</th>
 										<th>
-											<?php echo $entrada->getobservacionesEP(); ?>
+											<?php echo $e->observaciones_entrada; ?>
 										</th>
 
 										<td>
 
 
-											<a href="?c=Entradas&a=updateEntrada&idEntrada=<?php echo $entrada->getcodigoEP(); ?>"
+											<a href="?c=Entradas&a=updateEntrada&idEntrada=<?php echo $e->codigo_entrada; ?>"
 												class="btn-update btn-link">
 												<i class="fas fa-plus fa-fw"></i> &nbsp;ACTUALIZAR
 											</a>
@@ -101,7 +97,7 @@
 										<td>
 
 
-											<a href="?c=Entradas&a=deleteEntrada&idEntrada=<?php echo $entrada->getcodigoEP(); ?>"
+											<a href="?c=Entradas&a=deleteEntrada&idEntrada=<?php echo $e->codigo_entrada; ?>"
 												class="btn-delete btn-link">
 												<i class="fas fa-plus fa-fw"></i> &nbsp;ELIMINAR
 											</a>

@@ -21,20 +21,17 @@
     </header>
 
     <div class="container-fluid">
-        <form action="" method="post" class="form-neon" autocomplete="off">
+        <form action="?c=Entradas&a=Guardar" method="post" class="form-neon" autocomplete="off">
 
             <h1>Actualización De Producto</h1>
 
-            <input type="hidden" name="codigoEP" value="<?php echo $entrada->getcodigoEP(); ?>">
+            <input type="hidden" name="codigoEP" value="<?php echo $alm[0]->codigo_entrada; ?>">
 
 
             <br>
             <P>Producto</P>
             <select name="productoEP" required>
-                <option>
-                    <?php echo $entrada->getproductoEP(); ?>
-                </option>
-                <option disabled selected value="">Selecciona un Producto</option>
+                <option disabled selected value=""><?php echo $alm[0]->nombre_producto; ?></option>
                 <option value="Botas negras">Botas Negras</option>
                 <option value="botas azules">Botas Azules</option>
                 <option value="botas marrones">Botas Marrones</option>
@@ -43,10 +40,7 @@
             <p>Medida</p>
 
             <select name="medidaEP" required>
-                <option>
-                    <?php echo $entrada->getmedidaEP(); ?>
-                </option>
-                <option disabled selected value="">Selecciona una medida</option>
+                <option disabled selected value=""><?php echo $alm[0]->medida_producto; ?></option>
                 <option value="30">30</option>
                 <option value="32">32</option>
                 <option value="34">34</option>
@@ -58,47 +52,47 @@
             <br>
             <p>Fecha</p>
 
-            <input type="date" require name="fechaEP" value="<?php echo $entrada->getfechaEP(); ?>">
+            <input type="date" require name="fechaEP" value="<?php echo $alm[0]->fecha_compra; ?>">
             <br>
             <p>Cantidad A Modificar</p>
 
             <input type="number" placeholder="cantidad" name="cantidadEP"
-                value="<?php echo $entrada->getcantidadEP(); ?>">
+                value="<?php echo $alm[0]->cantidad; ?>">
             <br>
             <p>Modifique El Precio</p>
 
             <input type="text" pattern="[0-9]+(\.[0-9]{1,2})?" placeholder="&#8372; Precio en COP" name="precioEP"
-                required value="<?php echo $entrada->getprecioEP(); ?>">
+                required value="<?php echo $alm[0]->precio; ?>">
             <br>
             <p>Proveedor</p>
 
             <input type="text" placeholder="Nombre Proveedor" required name="nombreproveedorEP"
-                value="<?php echo $entrada->getnombreproveedorEP(); ?>">
+                value="<?php echo $alm[0]->nombre_proveedor; ?>">
             <br>
             <p>Nit</p>
 
-            <input type="number" placeholder="NIT" name="nitEP" value="<?php echo $entrada->getnitEP(); ?>">
+            <input type="number" placeholder="NIT" name="nitEP" value="<?php echo $alm[0]->nit; ?>">
             <br>
             <p>Telefono</p>
 
             <input type="tel" placeholder="Teléfono" name="celEP" required class="form-input"
-                value="<?php echo $entrada->getcelEP(); ?>">
+                value="<?php echo $alm[0]->telefono_proveedor; ?>">
             <br>
 
             <p>Dirección</p>
 
             <input type="text" placeholder="direccion proveedor" required name="direccionproveedorEP"
-                value="<?php echo $entrada->getdireccionproveedorEP(); ?>">
+                value="<?php echo $alm[0]->direccion_proveedor; ?>">
             <br>
             <p>Correo</p>
 
             <input type="email" placeholder="Correo proveedor" name="correoproveedorEP" required class="form-input"
-                value="<?php echo $entrada->getcorreoproveedorEP(); ?>">
+                value="<?php echo $alm[0]->correo_proveedor; ?>">
             <p>Observaciones</p>
 
 
             <input type="text" placeholder="observaciones" required name="observacionesEP"
-                value="<?php echo $entrada->getobservacionesEP(); ?>">
+                value="<?php echo $alm[0]->observaciones_entrada; ?>">
             <br>
 
             <button type="submit" class="btn btn-raised btn-info btn-sm"><i class="far fa-save"></i> &nbsp;
