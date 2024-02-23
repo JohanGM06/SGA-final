@@ -11,16 +11,12 @@
 
 <body>
 
-    <header>
-        <a href="?c=menu&a=main">
-            <img class="logo" src="assets/img/SGAlogo.jpg" alt="Logo" />
-        </a>
-    </header>
+
     <main>
-        <div class="container-fluid">
+        <div class="container-fluid text-body-secondary">
 
             <form action="" method="post" class="form-neon" autocomplete="off">
-                <h1>SALIDA</h1>
+                <h1 class="<?php echo ($tema == 'oscuro') ? 'text-light' : 'text-dark'; ?>">SALIDA</h1>
 
                 <select name="productoS" required value="">
                     <option disabled selected value="">Selecciona un Producto</option>

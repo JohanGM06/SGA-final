@@ -14,16 +14,10 @@
 
 <body>
 
-    <header>
-        <a href="?c=menu&a=main">
-            <img class="logo" src="assets/img/SGAlogo.jpg" alt="Logo" />
-        </a>
-    </header>
-
-    <div class="container-fluid">
+    <div class="container-fluid text-body-secondary">
         <form action="" method="post" class="form-neon" autocomplete="off">
 
-            <h1>Actualización De Producto</h1>
+            <h1 class="<?php echo ($tema == 'oscuro') ? 'text-light' : 'text-dark'; ?>">Actualización De Producto</h1>
 
             <input type="hidden" name="codigoEP" value="<?php echo $entrada->getcodigoEP(); ?>">
 
@@ -108,6 +102,6 @@
     </div>
     </div>
 </body>
-<footer></footer>
+
 
 </html>

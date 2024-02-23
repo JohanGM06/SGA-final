@@ -1,10 +1,8 @@
 * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+ 
     text-transform: capitalize;
   }
-  html {
+/*   html {
     font-size: 12px;
   }
   body {
@@ -16,21 +14,24 @@
     height: 90px;
     border: 30px;
     margin-left: 15px;
-  }
+  } */
 header{
     height: 90px;
     background-color: rgb(46, 44, 44);
-    }
+    text-align: center;
+    } 
 
-    h1{
+    /* h1{
       text-align: center;
       background: #1d1c1c;
       color: white;
-    }
-.container-fluid {
+      text-align: center;
+      text-size-adjust: 1;
+    }  */
+/* .container-fluid {
     padding: 20px;
-    background-color: #1d1c1c;
-  }
+    background-color: black;
+  } */
 
   
   
@@ -49,6 +50,7 @@ header{
     padding: 10px;
     text-align: center;
     border: 1px solid black;
+    text-decoration: none;
   }
   
  
@@ -82,7 +84,7 @@ header{
 .btn-delete {
     display: inline-block;
     padding: 8px 12px;
-    text-decoration: none;
+    text-decoration: black;
     border-radius: 5px;
     color: #fff;
     background-color: black;
@@ -109,8 +111,8 @@ header{
 .texto{font-size: 100
   px; color: white; font-family: "Playfair Display", serif;}
 
-footer{
+/* footer{
   height: 80px;
   background-color: rgb(46, 44, 44);
 }
-
+ */

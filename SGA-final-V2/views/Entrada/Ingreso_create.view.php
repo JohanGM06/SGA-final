@@ -12,18 +12,14 @@
 
 <body>
 
-    <header>
-        <a href="?c=menu&a=main">
-            <img class="logo" src="assets/img/SGAlogo.jpg" alt="Logo" />
-        </a>
-    </header>
+
     <main>
 
         <div class="container-fluid">
 
 
             <form action="" method="post" class="form-neon" autocomplete="off">
-                <h1>ENTRADA DE PRODUCTO</h1>
+                <h1 class="<?php echo ($tema == 'oscuro') ? 'text-light' : 'text-dark'; ?>">ENTRADA DE PRODUCTO</h1>
 
                 <select name="productoEP" required>
                     <option disabled selected value="">Selecciona un Producto</option>
@@ -69,9 +65,7 @@
                     ENVIAR</button>
 
             </form>
-            <footer>
-                GSA
-            </footer>
+
         </div>
 
     </main>

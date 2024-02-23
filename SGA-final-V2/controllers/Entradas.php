@@ -1,13 +1,24 @@
-<?php 
-    require_once "models/entrada.php";
-    class Entradas{
-        public function main(){
-            echo "hola";
-        }
-        // Registrar entrada y proveedor
-        public function createEntrada(){
-            if ($_SERVER['REQUEST_METHOD'] == 'GET') {
-                require_once "views/Entrada/Ingreso_create.view.php";
+<?php
+require_once "models/entrada.php";
+class Entradas
+{
+    public function main()
+    {
+        echo "hola";
+    }
+    // Registrar entrada y proveedor
+    public function createEntrada()
+    {
+        if ($_SERVER['REQUEST_METHOD'] == 'GET') {
+
+            require_once "views/Landing/Modules/header.php";
+            require_once "views/Landing/Modules/navSup.php";
+            require_once "views/Entrada/Ingreso_create.view.php";
+            // require_once "views/Landing/Pages/inicio.php";
+            require_once "views/Landing/Modules/tema.php";
+            require_once "views/Landing/Modules/footer.php";
+            require_once "views/Landing/Modules/dep.php";
+            require_once "views/Landing/Modules/iconos.php";
         }
         if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             $entrada = new Entrada(
@@ -26,23 +37,42 @@
             );
             $entrada->entradaCreate();
             header("Location:?c=Entradas&a=readEntrada");
+
         }
     }
-    public function readEntrada(){
+    public function readEntrada()
+    {
         $entradas = new Entrada;
         $entradas = $entradas->entradaRead();
-        
+
+
+        require_once "views/Landing/Modules/header.php";
+        require_once "views/Landing/Modules/navSup.php";
+        // require_once "views/Landing/Pages/inicio.php";
         require_once "views/Entrada/Ingreso_read.view.php";
+        require_once "views/Landing/Modules/tema.php";
+        require_once "views/Landing/Modules/footer.php";
+        require_once "views/Landing/Modules/dep.php";
+        require_once "views/Landing/Modules/iconos.php";
+
         // var_dump($entradas);
     }
 
 
-    public function updateEntrada(){
+    public function updateEntrada()
+    {
         if ($_SERVER['REQUEST_METHOD'] == 'GET') {
             // 1ra Parte: Obtener el registro
             $entrada = new Entrada;
             $entrada = $entrada->getEntradaById($_GET['idEntrada']);
+
+            require_once "views/Landing/Modules/header.php";
+            require_once "views/Landing/Modules/navSup.php";
             require_once "views/Entrada/Ingreso_update.view.php";
+            require_once "views/Landing/Modules/tema.php";
+            require_once "views/Landing/Modules/footer.php";
+            require_once "views/Landing/Modules/dep.php";
+            require_once "views/Landing/Modules/iconos.php";
         }
         if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             // 2da Parte: Actualizar el registro
@@ -59,20 +89,21 @@
                 $_POST['celEP'],
                 $_POST['direccionproveedorEP'],
                 $_POST['correoproveedorEP'],
-                $_POST['observacionesEP']            
+                $_POST['observacionesEP']
             );
             // print_r($entrada);
             $entrada->entradaUpdate();
             header("Location:?c=Entradas&a=readEntrada");
         }
     }
-    public function deleteEntrada(){
-            $entrada = new Entrada;                        
-            $entrada = $entrada->entradaDelete($_GET['idEntrada']); 
-            
-            header("Location:?c=Entradas&a=readEntrada");
-        }
+    public function deleteEntrada()
+    {
+        $entrada = new Entrada;
+        $entrada = $entrada->entradaDelete($_GET['idEntrada']);
 
+        header("Location:?c=Entradas&a=readEntrada");
     }
+
+}
 
 ?>

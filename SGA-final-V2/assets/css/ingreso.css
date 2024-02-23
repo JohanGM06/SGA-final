@@ -1,4 +1,4 @@
-* {
+/* * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
@@ -9,13 +9,13 @@
   }
   body {
     font-size: 1rem;
-  }
+  } */
   
  
-header{
+/* header{
 height: 90px;
 background-color: rgb(46, 44, 44);
-}
+} */
 
   
 .logo {
@@ -29,7 +29,7 @@ background-color: rgb(46, 44, 44);
   /* Estilos para el formulario */
   .container-fluid {
     padding: 20px;
-    background-color: #1d1c1c;
+    
   }
   
   .form-neon {

@@ -6,26 +6,27 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<link rel="icon" href="assets/img/SGAlogo.jpg" type="image/x-icon">
 	<link rel="stylesheet" href="assets/css/estilosreade.css" />
+	<!-- 	<link href="assets\css\footer.css" rel="stylesheet">
+ -->
+
 	<link rel="preconnect" href="https://fonts.googleapis.com" />
 	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 	<link href="https://fonts.googleapis.com/css2?family=Playfair+Display&display=swap" rel="stylesheet" />
-	<title>Vista de producto</title>
+	<title>Lista de producto</title>
+	<!-- 	<h1>Lista De Productos</h1>
+ -->
+	<h1 class="text-center fs-2 fw-bold text-body-secondary">Lista De productos</h1>
+
 </head>
 
+
 <body>
-
-	<header>
-		<a href="?c=menu&a=main">
-			<img class="logo" src="assets/img/SGAlogo.jpg" alt="Logo" />
-		</a>
-
-	</header>
-	<h1>Lista De Productos</h1>
 	<main>
 		<tbody>
 
-			<tr class="text-center">
-				<div class="container-fluid">
+			<tr class="text-center ">
+				<div class="container-fluid text-body-secondary">
+
 					<div class="table-responsive">
 						<table>
 							<thead>
@@ -50,78 +51,95 @@
 							<tbody>
 								<?php foreach ($entradas as $entrada): ?>
 									<tr class="text-center">
-										<td>
+										<td class="<?php echo ($tema == 'oscuro') ? 'text-light' : 'text-dark'; ?>">
 											<?php echo $entrada->getcodigoEP(); ?>
 										</td>
-										<th>
+										<td class="<?php echo ($tema == 'oscuro') ? 'text-light' : 'text-dark'; ?>">
 											<?php echo $entrada->getproductoEP(); ?>
-										</th>
-										<th>
+										</td>
+										<td class="<?php echo ($tema == 'oscuro') ? 'text-light' : 'text-dark'; ?>">
 											<?php echo $entrada->getmedidaEP(); ?>
-										</th>
-										<th>
+										</td>
+										<td class="<?php echo ($tema == 'oscuro') ? 'text-light' : 'text-dark'; ?>">
 											<?php echo $entrada->getfechaEP(); ?>
-										</th>
-										<th>
+										</td class="<?php echo ($tema == 'oscuro') ? 'text-light' : 'text-dark'; ?>">
+										<td class="<?php echo ($tema == 'oscuro') ? 'text-light' : 'text-dark'; ?>">
 											<?php echo $entrada->getcantidadEP(); ?>
-										</th>
+										</td>
 
-										<th>
+										<td class="<?php echo ($tema == 'oscuro') ? 'text-light' : 'text-dark'; ?>">
 											<?php echo $entrada->getprecioEP(); ?>
-										</th>
-										<th>
+										</td>
+										<td class="<?php echo ($tema == 'oscuro') ? 'text-light' : 'text-dark'; ?>">
 											<?php echo $entrada->getnombreproveedorEP(); ?>
-										</th>
-										<th>
+										</td>
+										<td class="<?php echo ($tema == 'oscuro') ? 'text-light' : 'text-dark'; ?>">
 											<?php echo $entrada->getnitEP(); ?>
-										</th>
-										<th>
+										</td>
+										<td class="<?php echo ($tema == 'oscuro') ? 'text-light' : 'text-dark'; ?>">
 											<?php echo $entrada->getcelEP(); ?>
-										</th>
-										<th>
+										</td>
+										<td class="<?php echo ($tema == 'oscuro') ? 'text-light' : 'text-dark'; ?>">
 											<?php echo $entrada->getdireccionproveedorEP(); ?>
-										</th>
-										<th>
+										</td>
+										<td class="<?php echo ($tema == 'oscuro') ? 'text-light' : 'text-dark'; ?>">
 											<?php echo $entrada->getcorreoproveedorEP(); ?>
-										</th>
-										<th>
+										</td>
+										<td class="<?php echo ($tema == 'oscuro') ? 'text-light' : 'text-dark'; ?>">
 											<?php echo $entrada->getobservacionesEP(); ?>
-										</th>
-
-										<td>
-
-
-											<a href="?c=Entradas&a=updateEntrada&idEntrada=<?php echo $entrada->getcodigoEP(); ?>"
-												class="btn-update btn-link">
-												<i class="fas fa-plus fa-fw"></i> &nbsp;ACTUALIZAR
-											</a>
-
 										</td>
 
 										<td>
 
 
-											<a href="?c=Entradas&a=deleteEntrada&idEntrada=<?php echo $entrada->getcodigoEP(); ?>"
-												class="btn-delete btn-link">
-												<i class="fas fa-plus fa-fw"></i> &nbsp;ELIMINAR
+											<a href="?c=Entradas&a=updateEntrada&idEntrada= <?php echo $entrada->getcodigoEP(); ?>"
+												class="btn-update btn-link" style="text-decoration: none;">
+												<i></i> &nbsp;ACTUALIZAR
 											</a>
 
+										</td>
+
+										<td>
+											<a href="#" class="btn-delete btn-link" data-bs-toggle="modal"
+												style="text-decoration: none;"
+												data-bs-target="#confirmDeleteModal_<?php echo $entrada->getcodigoEP(); ?>">
+												<i class="fas fa-trash-alt fa-fw"></i> &nbsp;ELIMINAR
+											</a>
 										</td>
 									</tr>
-
-								</tbody>
-							<?php endforeach; ?>
-
+									<!-- Modal de Confirmación de Eliminación -->
+									<div class="modal fade" id="confirmDeleteModal_<?php echo $entrada->getcodigoEP(); ?>"
+										data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
+										aria-labelledby="confirmDeleteModalLabel_<?php echo $entrada->getcodigoEP(); ?>"
+										aria-hidden="true">
+										<div class="modal-dialog">
+											<div class="modal-content">
+												<div class="modal-header">
+													<h5 class="modal-title fs-5"
+														id="confirmDeleteModalLabel_<?php echo $entrada->getcodigoEP(); ?>">
+														¿Eliminar?</h5>
+													<button type="button" class="btn-close" data-bs-dismiss="modal"
+														aria-label="Close"></button>
+												</div>
+												<div class="modal-body">
+													<p>Una vez realizada la eliminación, no se podrá recuperar la
+														información. ¿Está seguro de continuar?</p>
+												</div>
+												<div class="modal-footer">
+													<button type="button" class="btn btn-secondary"
+														data-bs-dismiss="modal">Cancelar</button>
+													<a href="?c=Entradas&a=deleteEntrada&idEntrada=<?php echo $entrada->getcodigoEP(); ?>"
+														class="btn btn-danger">Eliminar</a>
+												</div>
+											</div>
+										</div>
+									</div>
+								<?php endforeach; ?>
+							</tbody>
 						</table>
-
 					</div>
-			</tr>
-
-		</tbody>
-
+				</div>
 	</main>
-
 </body>
-<footer></footer>
 
 </html>

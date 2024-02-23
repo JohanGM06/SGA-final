@@ -1,4 +1,4 @@
-* {
+/* * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
@@ -19,10 +19,10 @@
 header{
     height: 90px;
     background-color: rgb(46, 44, 44);
-    }
+    } */
     .container-fluid {
         padding: 20px;
-        background-color: #1d1c1c;
+       
       }
 p{
     font-size: 15px;
@@ -99,8 +99,3 @@ p{
     margin-right: 8px;
   }
 
-  footer{
-    height: 80px;
-    background-color: rgb(46, 44, 44);
-  }
-  

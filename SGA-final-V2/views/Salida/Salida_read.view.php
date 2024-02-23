@@ -9,17 +9,13 @@
 	<link rel="preconnect" href="https://fonts.googleapis.com" />
 	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 	<link href="https://fonts.googleapis.com/css2?family=Playfair+Display&display=swap" rel="stylesheet" />
-	<title>Vista de Salida</title>
+	<title>Salidas</title>
+
+	<h1 class="text-center fs-2 fw-bold text-body-secondary">Lista De Salidas</h1>
 </head>
 
 
 <body>
-	<header>
-		<a href="?c=menu&a=main">
-			<img class="logo" src="assets/img/SGAlogo.jpg" alt="Logo" />
-		</a>
-	</header>
-	<h1>Lista De Salidas</h1>
 	<main>
 		<tbody>
 
@@ -49,42 +45,42 @@
 							<tbody>
 								<?php foreach ($salidas as $salida): ?>
 									<tr class="text-center">
-										<td>
+										<td class="<?php echo ($tema == 'oscuro') ? 'text-light' : 'text-dark'; ?>">
 											<?php echo $salida->getcodigoS(); ?>
 										</td>
-										<th>
+										<td class="<?php echo ($tema == 'oscuro') ? 'text-light' : 'text-dark'; ?>">
 											<?php echo $salida->getproductoS(); ?>
-										</th>
-										<th>
+										</td class="<?php echo ($tema == 'oscuro') ? 'text-light' : 'text-dark'; ?>">
+										<td class="<?php echo ($tema == 'oscuro') ? 'text-light' : 'text-dark'; ?>">
 											<?php echo $salida->getmedidaS(); ?>
-										</th>
-										<th>
+										</td class="<?php echo ($tema == 'oscuro') ? 'text-light' : 'text-dark'; ?>">
+										<td class="<?php echo ($tema == 'oscuro') ? 'text-light' : 'text-dark'; ?>">
 											<?php echo $salida->getfechaS(); ?>
-										</th>
-										<th>
+										</td class="<?php echo ($tema == 'oscuro') ? 'text-light' : 'text-dark'; ?>">
+										<td class="<?php echo ($tema == 'oscuro') ? 'text-light' : 'text-dark'; ?>">
 											<?php echo $salida->getcantidadS(); ?>
-										</th>
-										<th>
+										</td class="<?php echo ($tema == 'oscuro') ? 'text-light' : 'text-dark'; ?>">
+										<td class="<?php echo ($tema == 'oscuro') ? 'text-light' : 'text-dark'; ?>">
 											<?php echo $salida->gettipoidS(); ?>
-										</th>
-										<th>
+										</td class="<?php echo ($tema == 'oscuro') ? 'text-light' : 'text-dark'; ?>">
+										<td class="<?php echo ($tema == 'oscuro') ? 'text-light' : 'text-dark'; ?>">
 											<?php echo $salida->getnumidS(); ?>
-										</th>
-										<th>
+										</td class="<?php echo ($tema == 'oscuro') ? 'text-light' : 'text-dark'; ?>">
+										<td class="<?php echo ($tema == 'oscuro') ? 'text-light' : 'text-dark'; ?>">
 											<?php echo $salida->getnombresS(); ?>
-										</th>
-										<th>
+										</td class="<?php echo ($tema == 'oscuro') ? 'text-light' : 'text-dark'; ?>">
+										<td class="<?php echo ($tema == 'oscuro') ? 'text-light' : 'text-dark'; ?>">
 											<?php echo $salida->getcelS(); ?>
-										</th>
-										<th>
+										</td class="<?php echo ($tema == 'oscuro') ? 'text-light' : 'text-dark'; ?>">
+										<td class="<?php echo ($tema == 'oscuro') ? 'text-light' : 'text-dark'; ?>">
 											<?php echo $salida->getdireccionS(); ?>
-										</th>
-										<th>
+										</td class="<?php echo ($tema == 'oscuro') ? 'text-light' : 'text-dark'; ?>">
+										<td class="<?php echo ($tema == 'oscuro') ? 'text-light' : 'text-dark'; ?>">
 											<?php echo $salida->getcoreoS(); ?>
-										</th>
-										<th>
+										</td class="<?php echo ($tema == 'oscuro') ? 'text-light' : 'text-dark'; ?>">
+										<td class="<?php echo ($tema == 'oscuro') ? 'text-light' : 'text-dark'; ?>">
 											<?php echo $salida->getobservacionesS(); ?>
-										</th>
+										</td class="<?php echo ($tema == 'oscuro') ? 'text-light' : 'text-dark'; ?>">
 										<td>
 
 
@@ -97,22 +93,53 @@
 										<td>
 
 
-											<a href="?c=Salidas&a=deleteSalida&idSalida=<?php echo $salida->getcodigoS(); ?>"
-												class="btn-update btn-link">
-												<i class="fas fa-plus fa-fw"></i> &nbsp;ELIMINAR
+
+											<a href="#" class="btn-delete btn-link" data-bs-toggle="modal"
+												data-bs-target="#confirmDeleteModal_<?php echo $salida->getcodigoS(); ?>"
+												style="text-decoration: none;">
+												<i class="fas fa-trash-alt fa-fw"></i> &nbsp;ELIMINAR
+											</a>
+
+
+
+
 
 
 										</td>
 									</tr>
 
-								</tbody>
-							<?php endforeach; ?>
-
+									<div class="modal fade" id="confirmDeleteModal_<?php echo $salida->getcodigoS(); ?>"
+										data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
+										aria-labelledby="confirmDeleteModalLabel_<?php echo $salida->getcodigoS(); ?>"
+										aria-hidden="true">
+										<div class="modal-dialog">
+											<div class="modal-content">
+												<div class="modal-header">
+													<h5 class="modal-title fs-5"
+														id="confirmDeleteModalLabel_<?php echo $salida->getcodigoS(); ?>">
+														Confirmar eliminación</h5>
+													<button type="button" class="btn-close" data-bs-dismiss="modal"
+														aria-label="Close"></button>
+												</div>
+												<div class="modal-body">
+													<p>Una vez eliminada la salida, esta acción no se puede deshacer. ¿Está
+														seguro de continuar?
+												</div>
+												<div class="modal-footer">
+													<button type="button" class="btn btn-secondary"
+														data-bs-dismiss="modal">Cancelar</button>
+													<a href="?c=Salidas&a=deleteSalida&idSalida=<?php echo $salida->getcodigoS(); ?>"
+														class="btn btn-primary">Eliminar</a>
+												</div>
+											</div>
+										</div>
+									</div>
+								<?php endforeach; ?>
+							</tbody>
 						</table>
-
 					</div>
+				</div>
 			</tr>
-
 		</tbody>
 	</main>
 </body>
