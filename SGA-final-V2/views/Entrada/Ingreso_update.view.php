@@ -14,7 +14,7 @@
 
 <body>
 
-    <div class="container-fluid text-body-secondary">
+    <div  class="container-fluid text-body-secondary">
         <form action="" method="post" class="form-neon" autocomplete="off">
 
             <h1 class="<?php echo ($tema == 'oscuro') ? 'text-light' : 'text-dark'; ?>">Actualización De Producto</h1>
@@ -23,7 +23,7 @@
 
 
             <br>
-            <P>Producto</P>
+            <P class = "colorText">Producto</P>
             <select name="productoEP" required>
                 <option>
                     <?php echo $entrada->getproductoEP(); ?>
@@ -34,7 +34,7 @@
                 <option value="botas marrones">Botas Marrones</option>
             </select>
             <br>
-            <p>Medida</p>
+            <p class = "colorText" class="<?php echo ($tema == 'oscuro') ? 'text-light' : 'text-dark'; ?>">Medida</p>
 
             <select name="medidaEP" required>
                 <option>
@@ -50,45 +50,45 @@
                 <option value="42">42</option>
             </select>
             <br>
-            <p>Fecha</p>
+            <p class = "colorText">Fecha</p>
 
             <input type="date" require name="fechaEP" value="<?php echo $entrada->getfechaEP(); ?>">
             <br>
-            <p>Cantidad A Modificar</p>
+            <p class = "colorText">Cantidad A Modificar</p>
 
             <input type="number" placeholder="cantidad" name="cantidadEP"
                 value="<?php echo $entrada->getcantidadEP(); ?>">
             <br>
-            <p>Modifique El Precio</p>
+            <p class = "colorText">Modifique El Precio</p>
 
             <input type="text" pattern="[0-9]+(\.[0-9]{1,2})?" placeholder="&#8372; Precio en COP" name="precioEP"
                 required value="<?php echo $entrada->getprecioEP(); ?>">
             <br>
-            <p>Proveedor</p>
+            <p class = "colorText">Proveedor</p>
 
             <input type="text" placeholder="Nombre Proveedor" required name="nombreproveedorEP"
                 value="<?php echo $entrada->getnombreproveedorEP(); ?>">
             <br>
-            <p>Nit</p>
+            <p class = "colorText">Nit</p>
 
             <input type="number" placeholder="NIT" name="nitEP" value="<?php echo $entrada->getnitEP(); ?>">
             <br>
-            <p>Telefono</p>
+            <p class = "colorText">Telefono</p>
 
             <input type="tel" placeholder="Teléfono" name="celEP" required class="form-input"
                 value="<?php echo $entrada->getcelEP(); ?>">
             <br>
 
-            <p>Dirección</p>
+            <p class = "colorText">Dirección</p>
 
             <input type="text" placeholder="direccion proveedor" required name="direccionproveedorEP"
                 value="<?php echo $entrada->getdireccionproveedorEP(); ?>">
             <br>
-            <p>Correo</p>
+            <p class = "colorText">Correo</p>
 
             <input type="email" placeholder="Correo proveedor" name="correoproveedorEP" required class="form-input"
                 value="<?php echo $entrada->getcorreoproveedorEP(); ?>">
-            <p>Observaciones</p>
+            <p class = "colorText">Observaciones</p>
 
 
             <input type="text" placeholder="observaciones" required name="observacionesEP"
