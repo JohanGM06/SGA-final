@@ -53,6 +53,16 @@ class Entrada{
             ) 
 		        VALUES (?,?,?,?,?,?,?,?,?,?,?)";
 
+            $sql2 = "INSERT INTO producto (
+                nombre_producto,
+                medida_producto,
+                cantidad,
+                precio,
+                nombre_proveedor,
+                observaciones_producto
+                ) 
+                    VALUES (?,?,?,?,?,?)";
+
             $this->dbh->prepare($sql)
                 ->execute(
                     array(
@@ -66,6 +76,17 @@ class Entrada{
                         $data->telefono_proveedor,
                         $data->direccion_proveedor,
                         $data->correo_proveedor,
+                        $data->observaciones_entrada
+                    )
+                );
+            $this->dbh->prepare($sql2)
+                ->execute(
+                    array(
+                        $data->nombre_producto,
+                        $data->medida_producto,
+                        $data->cantidad,
+                        $data->precio,
+                        $data->nombre_proveedor,
                         $data->observaciones_entrada
                     )
                 );
@@ -100,7 +121,16 @@ class Entrada{
             correo_proveedor = ?,
             observaciones_entrada = ?
                     WHERE codigo_entrada = ?;";
-    
+
+            $sql2 = "UPDATE producto SET
+                nombre_producto = ?,
+                medida_producto = ?,
+                nombre_proveedor = ?,
+                precio = ?,
+                cantidad = ?,
+                observaciones_producto = ?
+                WHERE codigo_producto = ?";
+                
             $this->dbh->prepare($sql)
                     ->execute(
                             array(
@@ -118,6 +148,19 @@ class Entrada{
                                 $data->codigo_entrada
                             )
             );
+
+            $this->dbh->prepare($sql2)
+            ->execute(
+                    array(
+                        $data->nombre_producto,
+                        $data->medida_producto,
+                        $data->nombre_proveedor,
+                        $data->precio,
+                        $data->cantidad,
+                        $data->observaciones_entrada,
+                        $data->codigo_entrada
+                    )
+    );
         } catch (Exception $e) {
             die($e->getMessage());
         }
@@ -126,8 +169,13 @@ class Entrada{
         try {
             $sql ="DELETE from entrada WHERE codigo_entrada = ?;";
             $stm = $this->dbh->prepare($sql);
-    
+
+            $sql2 ="DELETE from producto WHERE codigo_producto = ?;";
+            $stm2 = $this->dbh->prepare($sql2);
+
             $stm->execute([$id]);
+            $stm2->execute([$id]);
+
         } catch (Exception $e) {
             die($e->getMessage());
         }

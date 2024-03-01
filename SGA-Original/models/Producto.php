@@ -9,17 +9,13 @@ class Producto{
     public $cantidadP;
     public $observacionesP;
 
-    public function __construct(){
+    public function __CONSTRUCT()
+    {
         try {
-            $this->dbh = DataBase::connection();
-            $a = func_get_args();
-            $i = func_num_args();
-            if (method_exists($this, $f = '__construct' . $i)) {
-                call_user_func_array(array($this, $f), $a);
-            }
+            $this->dbh = Database::connection();
         } catch (Exception $e) {
             die($e->getMessage());
-        } 
+        }
     }
 
     public function productoRead(){

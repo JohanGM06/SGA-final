@@ -31,7 +31,7 @@
             <br>
             <P>Producto</P>
             <select name="productoEP" required>
-                <option disabled selected value=""><?php echo $alm[0]->nombre_producto; ?></option>
+                <option value="<?php echo $alm[0]->nombre_producto; ?>"><?php echo "Producto Registrado ". $alm[0]->nombre_producto; ?></option>
                 <option value="Botas negras">Botas Negras</option>
                 <option value="botas azules">Botas Azules</option>
                 <option value="botas marrones">Botas Marrones</option>
@@ -40,7 +40,7 @@
             <p>Medida</p>
 
             <select name="medidaEP" required>
-                <option disabled selected value=""><?php echo $alm[0]->medida_producto; ?></option>
+                <option value="<?php echo $alm[0]->medida_producto; ?>"><?php echo "Medida Registrada ".$alm[0]->medida_producto; ?></option>
                 <option value="30">30</option>
                 <option value="32">32</option>
                 <option value="34">34</option>

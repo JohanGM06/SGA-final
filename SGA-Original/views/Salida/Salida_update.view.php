@@ -21,19 +21,18 @@
     </header>
     <div class="container-fluid">
         <form action="" method="post" class="form-neon" autocomplete="off">
-        <?php foreach ($this->model->Obtener() as $s): ?>
 
             <h1>SALIDA</h1>
-            <input type="hidden" name="codigoS" value="<?php echo $s->codigo_salida; ?>">
+            <input type="hidden" name="codigoS" value="<?php echo $alm[0]->codigo_salida; ?>">
             <select name="productoS" required>
-                <option disabled selected><?php echo $s->nombre_producto; ?></option>
+                <option value="<?php echo $alm[0]->nombre_producto; ?>"><?php echo "nombre del producto ".$alm[0]->nombre_producto; ?></option>
                 <option value="botas negras">Botas negras</option>
                 <option value="botas azules">Botas azules</option>
                 <option value="botas marrones">Botas marrones</option>
             </select>
 
             <select name="medidaS" required>
-                <option disabled selected><?php echo $s->medida_producto; ?></option>
+                <option value="<?php echo $alm[0]->medida_producto; ?>"><?php echo "Talla del Producto " .$alm[0]->medida_producto; ?></option>
                 <option value="30">30</option>
                 <option value="32">32</option>
                 <option value="34">34</option>
@@ -43,12 +42,12 @@
                 <option value="42">42</option>
             </select>
 
-            <input type="date" require name="fechaS" value="<?php echo $s->fecha; ?>">
+            <input type="date" require name="fechaS" value="<?php echo $alm[0]->fecha; ?>">
 
-            <input type="number" placeholder="cantidad" require name="cantidadS" value="<?php echo $s->cantidad; ?>"></imput>
+            <input type="number" placeholder="cantidad" require name="cantidadS" value="<?php echo $alm[0]->cantidad; ?>"></imput>
 
             <select name="tipoidS">
-                <option disabled selected><?php echo $s->tipo_id; ?></option>
+                <option value="<?php echo $alm[0]->tipo_id; ?>"><?php echo $alm[0]->tipo_id; ?></option>
                 <option value="CC">CC</option>
                 <option value="CE">CE</option>
                 <option value="PASAPORTE">PASAPORTE</option>
@@ -56,21 +55,20 @@
                 <option value="NIT">NIT</option>
             </select>
 
-            <input type="number" placeholder="Numero de id" name="numidS" value="<?php echo $s->num_id; ?>"></imput>
+            <input type="number" placeholder="Numero de id" name="numidS" value="<?php echo $alm[0]->num_id; ?>"></imput>
 
-            <input type="text" placeholder="Nombre" name="nombresS" value="<?php echo $s->nombre_cliente; ?>"></imput>
+            <input type="text" placeholder="Nombre" name="nombresS" value="<?php echo $alm[0]->nombre_cliente; ?>"></imput>
 
-            <input type="tel" placeholder="Telefono" name="celS" required class="form-input" value="<?php echo $s->telefono_cliente; ?>"></imput>
+            <input type="tel" placeholder="Telefono" name="celS" required class="form-input" value="<?php echo $alm[0]->telefono_cliente; ?>"></imput>
 
-            <input type="text" placeholder="Direccion" name="direccionS" value="<?php echo $s->direccion_cliente; ?>"></imput>
+            <input type="text" placeholder="Direccion" name="direccionS" value="<?php echo $alm[0]->direccion_cliente; ?>"></imput>
 
-            <input type="text" placeholder="Correo" name="coreoS" required class="form-input" value="<?php echo $s->correo_cliente; ?>"></imput>
+            <input type="text" placeholder="Correo" name="coreoS" required class="form-input" value="<?php echo $alm[0]->correo_cliente; ?>"></imput>
 
-            <input type="text" placeholder="Observaciones" name="observacionesS" value="<?php echo $s->observaciones_salida; ?>"></imput>
+            <input type="text" placeholder="Observaciones" name="observacionesS" value="<?php echo $alm[0]->observaciones_salida; ?>"></imput>
 
             <button type="submit" class="btn btn-raised btn-info btn-sm"><i class="far fa-save"></i> &nbsp;
                 ENVIAR</button>
-                <?php endforeach; ?>
 
         </form>
     </div>

@@ -52,6 +52,11 @@ class Salida
             ) 
 		        VALUES (?,?,?,?,?,?,?,?,?,?,?)";
 
+            $sql2 = "UPDATE producto SET  
+            cantidad = (cantidad) - ?,
+        WHERE nombre_producto = ? AND medida_producto = ?;";
+
+
             $this->dbh->prepare($sql)
                 ->execute(
                     array(
@@ -66,6 +71,14 @@ class Salida
                         $data->direccion_cliente,
                         $data->correo_cliente,
                         $data->observaciones_salida
+                    )
+                );
+            $this->dbh->prepare($sql2)
+                ->execute(
+                    array(
+                        $data->cantidad,
+                        $data->nombre_producto,
+                        $data->medida_producto
                     )
                 );
         } catch (Exception $e) {
@@ -83,9 +96,10 @@ class Salida
             die($e->getMessage());
         }
     }
-    public function Actualizar(Salida $data) {
+    public function Actualizar(Salida $data)
+    {
         try {
-    
+
             $sql = "UPDATE salida SET 
             nombre_producto = ?,
             medida_producto = ?,
@@ -99,37 +113,49 @@ class Salida
             correo_cliente = ?,
             observaciones_salida = ?
                     WHERE codigo_salida = ?;";
-    
+
+            $sql2 = "UPDATE producto SET  
+            cantidad = (cantidad) - ?,
+                    WHERE nombre_producto = ? AND medida_producto = ?;";
+
             $this->dbh->prepare($sql)
-                    ->execute(
-                            array(
-                                $data->nombre_producto,
-                                $data->medida_producto,
-                                $data->fecha,
-                                $data->cantidad,
-                                $data->tipo_id,
-                                $data->num_id,
-                                $data->nombre_cliente,
-                                $data->telefono_cliente,
-                                $data->direccion_cliente,
-                                $data->correo_cliente,
-                                $data->observaciones_salida,
-                                $data->codigo_salida
-                            )
-            );
+                ->execute(
+                    array(
+                        $data->nombre_producto,
+                        $data->medida_producto,
+                        $data->fecha,
+                        $data->cantidad,
+                        $data->tipo_id,
+                        $data->num_id,
+                        $data->nombre_cliente,
+                        $data->telefono_cliente,
+                        $data->direccion_cliente,
+                        $data->correo_cliente,
+                        $data->observaciones_salida,
+                        $data->codigo_salida
+                    )
+                );
+                $this->dbh->prepare($sql2)
+                ->execute(
+                    array(
+                        $data->cantidad,
+                        $data->nombre_producto,
+                        $data->medida_producto
+                    )
+                );
         } catch (Exception $e) {
             die($e->getMessage());
         }
     }
-    public function Eliminar($id) {
+    public function Eliminar($id)
+    {
         try {
-            $sql ="DELETE from salida WHERE codigo_salida = ?;";
+            $sql = "DELETE from salida WHERE codigo_salida = ?;";
             $stm = $this->dbh->prepare($sql);
-    
+
             $stm->execute([$id]);
         } catch (Exception $e) {
             die($e->getMessage());
         }
-    
     }
 }
